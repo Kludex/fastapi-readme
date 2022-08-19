@@ -20,6 +20,22 @@
           }
         }
       }
+    },
+    "/another": {
+      "post": {
+        "summary": "Another",
+        "operationId": "another_another_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
