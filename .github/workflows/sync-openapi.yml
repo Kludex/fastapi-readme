@@ -1,0 +1,25 @@
+name: Sync OpenAPI definition to ReadMe
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Validate OpenAPI JSON
+        uses: readmeio/rdme@7.5.0
+        with:
+          rdme: validate openapi.json
+
+      - name: Sync OpenAPI JSON to ReadMe
+        if: github.ref == 'refs/heads/master'
+        uses: readmeio/rdme@7.5.0
+        with:
+          rdme: openapi openapi.json --key=${{ secrets.README_API_KEY }} --id=62ff2ebb60122600a129088c
