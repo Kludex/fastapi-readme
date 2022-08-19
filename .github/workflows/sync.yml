@@ -52,7 +52,7 @@ jobs:
           rdme: validate openapi.json
 
       - name: Sync OpenAPI JSON to ReadMe
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: readmeio/rdme@7.5.0
         with:
           rdme: openapi openapi.json --key=${{ secrets.README_API_KEY }} --id=62ff2ebb60122600a129088c
